@@ -9,7 +9,7 @@ usuario_schema = UsuarioSchema()
 
 class VistaLogIn(Resource):
     def post(self):
-            time.sleep(2.7)
+            # time.sleep(1.)
             u_nombre = request.json["nombre"]
             u_contrasena = request.json["contrasena"]
             usuario = Usuario.query.filter_by(nombre=u_nombre, contrasena = u_contrasena).all()
