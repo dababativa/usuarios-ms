@@ -3,12 +3,13 @@ from ..modelos import db, Usuario, UsuarioSchema
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError
 from flask_jwt_extended import jwt_required, create_access_token
-
+import time
 usuario_schema = UsuarioSchema()
 
 
 class VistaLogIn(Resource):
     def post(self):
+            time.sleep(1.5)
             u_nombre = request.json["nombre"]
             u_contrasena = request.json["contrasena"]
             usuario = Usuario.query.filter_by(nombre=u_nombre, contrasena = u_contrasena).all()
